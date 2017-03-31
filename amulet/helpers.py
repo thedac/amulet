@@ -67,7 +67,7 @@ def juju(args, env=None, include_model=True):
         else:
             args = list(args)
             # insert the model arg after the command, but before any other args
-            args[1:0] = [model_flag, default_environment()]
+            args += [model_flag, default_environment()]
     try:
         p = subprocess.Popen(['juju'] + args, env=env, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE)
